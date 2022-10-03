@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pakistani Cricketer 💪</title>
+</head>
+
+<style>
+    img {
+        width: 100vw;
+        height: 100vh;
+    }
+</style>
+
+<body>
+    <img src="background.png" alt="">
+    <script>
+        // Some data we can work with
+
+        const inventors = [{
+            first: 'Abid',
+            last: 'Ali',
+            year: 1879,
+            passed: 1955
+        }, {
+            first: 'Aiman',
+            last: 'Anwer',
+            year: 1643,
+            passed: 1727
+        }, {
+            first: 'Anam ',
+            last: 'Amin',
+            year: 1564,
+            passed: 1642
+        }, {
+            first: 'Agha ',
+            last: 'Salman',
+            year: 1867,
+            passed: 1934
+        }, {
+            first: 'Asif ',
+            last: 'Ali',
+            year: 1571,
+            passed: 1630
+        }, {
+            first: 'Babar',
+            last: 'Azam',
+            year: 1473,
+            passed: 1543
+        }, {
+            first: 'Bismah',
+            last: 'Maroof',
+            year: 1858,
+            passed: 1947
+        }, {
+            first: 'Azhar ',
+            last: 'Ali (Lahore)',
+            year: 1898,
+            passed: 1979
+        }, {
+            first: 'Faheem ',
+            last: 'Ashraf',
+            year: 1815,
+            passed: 1852
+        }, {
+            first: 'Haris',
+            last: 'Rauf',
+            year: 1855,
+            passed: 1905
+        }, {
+            first: 'Mohammad',
+            last: 'Hafeez (Sargodha)',
+            year: 1878,
+            passed: 1968
+        }, {
+            first: 'Javeria ',
+            last: 'Khan',
+            year: 1829,
+            passed: 1909
+        }];
+
+        const people = [
+            "Wasim Akram",
+            'Waqar Younis',
+            "Imran Khan", "Danish Kaneri",
+            "Yasir Shah	",
+            " Abdul Qadir",
+            "Saqlain Mushtaq",
+            " Mushtaq Ahmed",
+            " Shoaib Akhtar",
+            "Saeed Ajmal",
+            " Saeed Ajmal",
+            "Sarfraz Nawaz",
+            "Iqbal Qasim",
+            " Umar Gul",
+            " Fazal Mahmood",
+            " Intikhab Alam"
+        ];
+
+        // 1 Array.prototype.filter()
+
+        const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600));
+
+        console.table(fifteen);
+
+        // 2 Array.prototype.map()
+
+        const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+        console.log(fullNames);
+
+        // 3 Array.prototype.sort()
+
+        const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
+        console.table(ordered);
+
+        // 4 Array.prototype.reduce()
+
+        const totalYears = inventors.reduce((total, inventor) => {
+            return total + (inventor.passed - inventor.year);
+        }, 0);
+
+        console.log(totalYears);
+
+        // 5. Sort the inventors by years lived
+        const oldest = inventors.sort(function(a, b) {
+            const lastInventor = a.passed - a.year;
+            const nextInventor = b.passed - b.year;
+            return lastInventor > nextInventor ? -1 : 1;
+        });
+        console.table(oldest);
+
+        // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+
+        const alpha = people.sort((lastOne, nextOne) => {
+            const [aLast, aFirst] = lastOne.split(', ');
+            const [bLast, bFirst] = nextOne.split(', ');
+            return aLast > bLast ? 1 : -1;
+        });
+        console.log(alpha);
+
+        // 8. Reduce Exercise
+
+        const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogostick'];
+
+        const transportation = data.reduce(function(obj, item) {
+            if (!obj[item]) {
+                obj[item] = 0;
+            }
+            obj[item]++;
+            return obj;
+        }, {});
+
+        console.log(transportation);
+    </script>
+</body>
+
+</html>
